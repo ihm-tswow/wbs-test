@@ -11,7 +11,6 @@ jobs:
         with:
           submodules: 'recursive'
           token: ${{ secrets.GH_PAT }}
-      - name: Install Cython
-        run: pip install cython
-      - name: Build
-        run: ./build.bat
+      - run: |
+          cmake -S ./ -B ./build
+          cmake --build ./build --config Release --target install
