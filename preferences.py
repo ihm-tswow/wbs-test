@@ -10,8 +10,13 @@ class preferences(bpy.types.AddonPreferences):
 
     loaded_build_type: bpy.props.EnumProperty(
         name = "Loaded Build Type",
-        default = "RelWithDebInfo",
-        items = ("Debug","RelWithDebInfo","Release","MinSizeRel")
+        default = "Debug",
+        items = [
+            ("Debug","Debug",""),
+            ("RelWithDebInfo","RelWithDebInfo",""),
+            ("Release","Release",""),
+            ("MinSizeRel","MinSizeRel","")
+        ]
     )
 
     def draw(self, context):
