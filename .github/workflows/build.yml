@@ -11,6 +11,15 @@ jobs:
         with:
           submodules: 'recursive'
           token: ${{ secrets.GH_PAT }}
-      - run: |
-          cmake -S ./ -B ./build
-          cmake --build ./build --config Release --target install
+
+      - name: Blender 3.0.0
+        uses: ./.github/actions/build-windows
+        with:
+          blender-version: "3.0.0"
+
+      - name: Blender 2.79b
+        uses: ./.github/actions/build-windows
+        with:
+          blender-version: "2.79b"
+
+      

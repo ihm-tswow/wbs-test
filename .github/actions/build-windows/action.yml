@@ -1,0 +1,15 @@
+name: 'Build Windows'
+description: 'Builds addon for a specific blender version on windows'
+inputs:
+  blender-version:
+    description: 'The blender version to build for'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Generate
+      run: cmake -S . -B build -DBUILD_VERSIONS="${{ inputs.blender-version }}"
+      shell: pwsh
+    - name: Build
+      run: cmake --build build --config Release
+      shell: pwsh
