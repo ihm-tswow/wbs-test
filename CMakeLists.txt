@@ -7,4 +7,4 @@ set(CMAKE_CXX_STANDARD 20)
 set(SCRIPT_LIBRARIES "")
 set(SCRIPT_INCLUDE_DIRECTORIES "")
 
-include(bxx/cmake/generate.cmake)
+include(bxx/cmake/main.cmake)

@@ -3,25 +3,13 @@ import bpy
 class preferences(bpy.types.AddonPreferences):
     bl_idname = __package__
 
-    auto_reload_scripts: bpy.props.BoolProperty(
-        name = "Auto-load scripts",
-        default = False
-    )
-
-    loaded_build_type: bpy.props.EnumProperty(
-        name = "Loaded Build Type",
-        default = "Debug",
-        items = [
-            ("Debug","Debug",""),
-            ("RelWithDebInfo","RelWithDebInfo",""),
-            ("Release","Release",""),
-            ("MinSizeRel","MinSizeRel","")
-        ]
+    demo_preference: bpy.props.StringProperty(
+        name = "Demo Preference",
+        default = "Default Value",
     )
 
     def draw(self, context):
-        self.layout.prop(self, "project_path")
-        self.layout.prop(self, "auto_reload_scripts")
+        self.layout.prop(self, "demo_preference")
 
     @staticmethod
     def get(key,default = None):
