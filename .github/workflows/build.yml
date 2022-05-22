@@ -17,13 +17,11 @@ jobs:
         uses: ./.github/actions/build-windows
         with:
           blender-version: "3.0.0"
+          tests: true
 
       - name: Blender 2.79b
         if: always()
         uses: ./.github/actions/build-windows
         with:
           blender-version: "2.79b"
-
-      - name: Install
-        if: success()
-        run: cmake --build build --target INSTALL --config Release
+          tests: true

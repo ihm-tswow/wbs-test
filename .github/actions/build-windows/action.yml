@@ -4,12 +4,17 @@ inputs:
   blender-version:
     description: 'The blender version to build for'
     required: true
+  tests:
+    description: 'Whether to run automatic tests'
+    required: true
 runs:
   using: "composite"
   steps:
     - name: Generate
-      run: cmake -S . -B build -DBUILD_VERSIONS="${{ inputs.blender-version }}"
+      run: cmake -S . -B build -DBUILD_VERSIONS="${{ inputs.blender-version }}" -DRUN_TESTS_ON_INSTAL=${{ inputs.tests }}
       shell: pwsh
     - name: Build
       run: cmake --build build --config Release
       shell: pwsh
+    - name: Install / Tests
+      run: cmake --build build --config Release --target INSTALL
