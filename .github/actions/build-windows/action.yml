@@ -18,3 +18,4 @@ runs:
       shell: pwsh
     - name: Install / Tests
       run: cmake --build build --config Release --target INSTALL
+      shell: pwsh
