@@ -11,7 +11,7 @@ runs:
   using: "composite"
   steps:
     - name: Generate
-      run: cmake -S . -B build -DBUILD_VERSIONS="${{ inputs.blender-version }}" -DRUN_TESTS_ON_INSTAL=${{ inputs.tests }}
+      run: cmake -S . -B build -DBUILD_VERSIONS="${{ inputs.blender-version }}" -DRUN_TESTS_ON_INSTALL="${{ inputs.tests }}" -DCMAKE_INSTALL_PREFIX="C:/bxx_ci"
       shell: pwsh
     - name: Build
       run: cmake --build build --config Release
