@@ -3,16 +3,15 @@ from .bxx.core import core
 import importlib
 
 bl_info = {
-    "name": "Test Plugin",
-    "author": "Your Name",
+    "name": "BXX Tests",
+    "author": "IHM",
     "version": (1, 0),
     "blender": (3, 0, 0),
-    "description": "Your Description",
+    "description": "Test suite for bxx",
     "category": "Import-Export"
 }
 
 def register():
-    print("package is ",__package__)
     core.register()
 
 def unregister():
