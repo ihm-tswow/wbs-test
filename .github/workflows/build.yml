@@ -17,3 +17,10 @@ jobs:
         with:
           blender-version: "3.0.0"
           tests: true
+
+      - name: Blender 3.3.0
+        if: always()
+        uses: ./.github/actions/build-windows
+        with:
+          blender-version: "3.3.0"
+          tests: true
