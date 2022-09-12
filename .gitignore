@@ -3,3 +3,5 @@ build
 calls.generated.cpp
 lib
 test_output
+install
+install.zip
