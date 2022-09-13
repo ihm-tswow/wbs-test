@@ -1,7 +1,7 @@
 include(bxx/cmake/main.cmake)
 cmake_minimum_required(VERSION 3.12)
 
-project(your-project)
+project(wbs-test)
 set(BUILD_VERSIONS "3.0.0" CACHE STRING "Blender versions to build for")
 set(CMAKE_CXX_STANDARD 20)
 
