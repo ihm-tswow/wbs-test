@@ -3,11 +3,11 @@ from .bxx.core import core
 import importlib
 
 bl_info = {
-    "name": "BXX Tests",
+    "name": "WoW Blender Studio - C++ Tests",
     "author": "IHM",
     "version": (1, 0),
     "blender": (3, 0, 0),
-    "description": "Test suite for bxx",
+    "description": "",
     "category": "Import-Export"
 }
 
