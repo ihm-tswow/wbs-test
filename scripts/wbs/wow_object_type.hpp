@@ -7,32 +7,45 @@
 #include <bxx/blender_types/context.hpp>
 #include <bxx/objects/python_object.hpp>
 
+#include <vector>
+
 namespace wbs
 {
     enum class wow_object_type_enum
     {
+        // Global
         NONE,
+
+        // Mesh Types
         WMO,
-        M2_PROP,
         M2,
-        ADT
+        ADT,
+
+        // Empty Types
+        M2_ATTACHMENT,
+        M2_EVENT,
+        M2_RIBBON,
+        M2_PARTICLE,
+
+        // Camera Types
+        M2_CAMERA,
+
+        // Light Types
+        M2_LIGHT,
     };
 
-    bxx::enum_meta wow_object_type_meta(wow_object_type_enum value);
+    std::vector<bxx::enum_entry> wow_object_type_entries(bxx::python_object,bxx::python_object);
 
     class wow_object_type : public bxx::property_group_class<wow_object_type>
     {
     public:
         std::vector<bxx::property_group_targets> targets() final;
 
-        bxx::enum_property<
-            /* TYPE           */ wow_object_type_enum,
-            /* NAME           */ "Test Enum Value",
-            /* DEFAULT        */ wow_object_type_enum::NONE,
-            /* DESCRIPTION    */ "Description",
-            /* REPRESENTATION */ wow_object_type_meta
+        bxx::dynamic_enum_property<
+            "WoW Object Type",
+            wow_object_type_entries
         >
-            object_type;
+        object_type;
 
         PROPERTY_GROUP(
             wow_object_type,
