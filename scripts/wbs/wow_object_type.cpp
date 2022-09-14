@@ -66,6 +66,11 @@ namespace wbs
         return { bxx::property_group_targets::Object };
     }
 
+    wow_object_type_enum wow_object_type::get_object_type_enum()
+    {
+        return magic_enum::enum_cast<wow_object_type_enum>(object_type.get_value()).value();
+    }
+
     void wow_object_type_panel::draw_header(python_object ctx)
     {
         get_layout().label("WoW Object");
@@ -73,8 +78,15 @@ namespace wbs
 
     void wow_object_type_panel::draw(python_object ctx)
     {
-        wow_object_type type = ctx.getattr("object").getattr<wow_object_type>("wow_object_type");
+        bxx::object obj = ctx.getattr("object");
+        wow_object_type type = obj.getattr<wow_object_type>("wow_object_type");
         get_layout().prop(type.object_type, bxx::kwarg("text", "WoW Object Type"));
+        switch (type.get_object_type_enum())
+        {
+        case wow_object_type_enum::M2_ATTACHMENT:
+            draw_attachment(obj);
+            break;
+        }
     }
 
     wow_object_type_enum get_object_type(bxx::object obj)

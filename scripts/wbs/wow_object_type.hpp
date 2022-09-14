@@ -47,6 +47,8 @@ namespace wbs
         >
         object_type;
 
+        wow_object_type_enum get_object_type_enum();
+
         PROPERTY_GROUP(
             wow_object_type,
             PROPERTY_ENTRY(object_type)
@@ -64,6 +66,8 @@ namespace wbs
         void draw_header(python_object ctx) final;
         void draw(python_object ctx) final;
         UI_CLASS(wow_object_type_panel)
+    protected:
+        void draw_attachment(bxx::object obj);
     };
 
     wow_object_type_enum get_object_type(bxx::object obj);
