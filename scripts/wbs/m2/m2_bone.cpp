@@ -1,19 +1,17 @@
 #include "m2_bone.hpp"
 
-#include <magic_enum.hpp>
-
 #include <iostream>
 
 namespace wbs
 {
     bxx::enum_meta m2_key_bone_meta(m2_key_bone value)
     {
-        return { std::string(magic_enum::enum_name<m2_key_bone>(value)),"",""};
+        return { bxx::enums::get_enum_name<m2_key_bone>(value),"",""};
     }
 
     bxx::enum_meta m2_bone_flags_meta(m2_bone_flags value)
     {
-        return { std::string(magic_enum::enum_name<m2_bone_flags>(value)),"",""};
+        return { bxx::enums::get_enum_name<m2_bone_flags>(value),"",""};
     }
 
     bool poll_m2_bone_panel(bxx::python_object cls, bxx::python_object ctx)

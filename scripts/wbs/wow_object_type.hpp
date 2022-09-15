@@ -68,6 +68,7 @@ namespace wbs
         UI_CLASS(wow_object_type_panel)
     protected:
         void draw_attachment(bxx::object obj);
+        void draw_event(bxx::object obj);
     };
 
     wow_object_type_enum get_object_type(bxx::object obj);

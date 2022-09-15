@@ -1,13 +1,13 @@
 #include "m2_attachment.hpp"
 #include "../wow_object_type.hpp"
 
-#include <magic_enum.hpp>
+#include <bxx/enums.hpp>
 
 namespace wbs
 {
     bxx::enum_meta m2_attachment_meta(m2_attachment_type value)
     {
-        return bxx::enum_meta(std::string(magic_enum::enum_name<m2_attachment_type>(value)),"","");
+        return bxx::enum_meta(bxx::enums::get_enum_name<m2_attachment_type>(value),"","");
     }
 
     std::vector<bxx::property_group_targets> m2_attachment::targets()

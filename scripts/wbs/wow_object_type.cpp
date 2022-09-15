@@ -1,11 +1,11 @@
 #include "wow_object_type.hpp"
 
-#include <magic_enum.hpp>
+#include <bxx/enums.hpp>
 
 #define ADD_WOW_ENUM(vec,id,name,desc,icon)\
     vec.push_back(\
         bxx::enum_entry(\
-            std::string(magic_enum::enum_name<wow_object_type_enum>(wow_object_type_enum::id)),\
+            bxx::enums::get_enum_name<wow_object_type_enum>(wow_object_type_enum::id),\
             name,\
             desc,\
             icon,\
@@ -15,7 +15,6 @@
 
 namespace wbs
 {
-
     std::vector<bxx::enum_entry> wow_object_type_entries(bxx::python_object cls, bxx::python_object ctx)
     {
         bxx::object obj = ctx.getattr<bxx::object>("object");
@@ -68,7 +67,7 @@ namespace wbs
 
     wow_object_type_enum wow_object_type::get_object_type_enum()
     {
-        return magic_enum::enum_cast<wow_object_type_enum>(object_type.get_value()).value();
+        return bxx::enums::get_enum_value<wow_object_type_enum>(object_type.get_value());
     }
 
     void wow_object_type_panel::draw_header(python_object ctx)
@@ -86,12 +85,15 @@ namespace wbs
         case wow_object_type_enum::M2_ATTACHMENT:
             draw_attachment(obj);
             break;
+        case wow_object_type_enum::M2_EVENT:
+            draw_event(obj);
+            break;
         }
     }
 
     wow_object_type_enum get_object_type(bxx::object obj)
     {
-        return magic_enum::enum_cast<wow_object_type_enum>(obj.getattr<wow_object_type>("wow_object_type").object_type.get_value()).value();
+        return bxx::enums::get_enum_value<wow_object_type_enum>(obj.getattr<wow_object_type>("wow_object_type").object_type.get_value());
     }
 
     void register_wow_object_type()
