@@ -73,16 +73,16 @@ namespace wbs
     public:
         std::vector<bxx::property_group_targets> targets() final;
 
-        bxx::enum_property<
+        bxx::enum_property <
             /* TYPE           */ m2_attachment_type,
             /* NAME           */ "Attachment Type",
-            /* DEFAULT        */ m2_attachment_type::Chest,
             /* DESCRIPTION    */ "What type of attachment this point should count as",
+            /* DEFAULT        */ m2_attachment_type::Chest,
             /* REPRESENTATION */ m2_attachment_meta
         >
         attachment_type;
 
-        bxx::bool_property<"Animate", true>
+        bxx::bool_property<"Animate", "", true>
         animate;
 
         PROPERTY_GROUP(

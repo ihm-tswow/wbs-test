@@ -112,8 +112,8 @@ namespace wbs
         bxx::enum_property<
             /* TYPE           */ m2_key_bone,
             /* NAME           */ "M2 Key Bone",
-            /* DEFAULT        */ m2_key_bone::ArmL,
             /* DESCRIPTION    */ "Description",
+            /* DEFAULT        */ m2_key_bone::ArmL,
             /* REPRESENTATION */ m2_key_bone_meta
         >
         key_bone;
@@ -126,13 +126,13 @@ namespace wbs
         >
         flags;
 
-        bxx::int_property<"Sort Index", -1>
+        bxx::int_property<"Sort Index","", -1>
         sort_index;
 
-        bxx::int_property<"Submesh ID", 0, 0, 65535>
+        bxx::int_property<"Submesh ID","", 0, 0, 65535>
         submesh_id;
 
-        bxx::int_property<"Bone Name CRC", 0>
+        bxx::int_property<"Bone Name CRC","", 0>
         bone_name_crc;
 
         std::vector<bxx::property_group_targets> targets() final

@@ -5,6 +5,8 @@
 
 namespace wbs
 {
+    using cool_ref_type = bxx::property_entry_ref<"bpy.types.Object", bxx::python_object>;
+
     class m2_event: public bxx::property_group_class<m2_event>
     {
     public:
@@ -13,15 +15,15 @@ namespace wbs
         bxx::enum_property<
             /* TYPE           */ m2_event_type,
             /* NAME           */ "M2 Event Type",
-            /* DEFAULT        */ m2_event_type::AttackHold,
-            /* DESCRIPTION    */ "What type of event this is"
+            /* DESCRIPTION    */ "What type of event this is",
+            /* DEFAULT        */ m2_event_type::AttackHold
         >
         event_type;
 
-        bxx::int_property<"Data", 0>
+        bxx::int_property<"Data", "", 0>
         data;
 
-        bxx::bool_property<"Fire", false>
+        bxx::bool_property<"Fire", "", false>
         fire;
 
         PROPERTY_GROUP(

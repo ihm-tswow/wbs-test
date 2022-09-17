@@ -43,6 +43,7 @@ namespace wbs
 
         bxx::dynamic_enum_property<
             "WoW Object Type",
+            "",
             wow_object_type_entries
         >
         object_type;

@@ -1,6 +1,8 @@
 #include "m2_event.hpp"
 #include "../wow_object_type.hpp"
 
+#include <iostream>
+
 namespace wbs
 {
     std::vector<bxx::property_group_targets> m2_event::targets()

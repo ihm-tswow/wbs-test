@@ -28,8 +28,8 @@ namespace wbs
         bxx::enum_property<
             /* TYPE           */ wow_material_type_enum,
             /* NAME           */ "WoW Material Type",
-            /* DEFAULT        */ wow_material_type_enum::NONE,
             /* DESCRIPTION    */ "Description",
+            /* DEFAULT        */ wow_material_type_enum::NONE,
             /* REPRESENTATION */ wow_material_type_meta
         >
         material_type;
